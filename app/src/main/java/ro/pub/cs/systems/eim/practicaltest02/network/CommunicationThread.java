@@ -62,7 +62,7 @@ public class CommunicationThread extends Thread {
                     String currentTime = httpClient.execute(httpGet, responseHandler);
                     Log.e(Constants.TAG, "[COMMUNICATION THREAD] Client number: " + clientNum);
 
-                    DateFormat format = new SimpleDateFormat("yyyyy-mm-dd hh:mm:ss", Locale.ENGLISH);
+                    DateFormat format = new SimpleDateFormat("yyyyy-mm-dd'T'hh:mm:ss'Z'");
                     try {
                         if (currentTime != null) {
                             String lastTime = data.get(clientNum);

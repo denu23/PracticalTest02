@@ -78,11 +78,23 @@ public class PracticalTest02MainActivity extends AppCompatActivity {
             }
 
             currentTimeTextView.setText(Constants.EMPTY_STRING);
+            if (clientThread == null) {
                 clientThread = new ClientThread(
                         clientAddress,
                         Integer.parseInt(clientPort),
-                        currentTimeTextView);
+                        currentTimeTextView,
+                        0);
                 clientThread.start();
+            } else {
+                Log.e(Constants.TAG, "[MAIN ACTIVITY] Client pressed again!");
+
+                clientThread = new ClientThread(
+                        clientAddress,
+                        Integer.parseInt(clientPort),
+                        currentTimeTextView,
+                        1);
+                clientThread.start();
+            }
         }
     }
 

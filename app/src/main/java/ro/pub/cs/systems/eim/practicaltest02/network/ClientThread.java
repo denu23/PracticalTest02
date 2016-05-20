@@ -24,12 +24,15 @@ public class ClientThread extends Thread {
     public ClientThread(
             String address,
             int port,
-            TextView currentTimeTextView) {
+            TextView currentTimeTextView,
+            int sameClient) {
         this.address = address;
         this.port = port;
         this.currentTimeTextView = currentTimeTextView;
+        if (sameClient == 0)
+            totalClients += 1;
+
         this.clientNum = totalClients;
-        totalClients += 1;
     }
 
     @Override
